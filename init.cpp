@@ -24,30 +24,30 @@ void InitOfWindow(void)
 	setbkmode(TRANSPARENT);
 	fillrectangle(0,60,630,500);
 
-	outtextxy(20, 40, _T("Ñ§ºÅ"));
+	outtextxy(20, 40, _T("å­¦å·"));
 
-	outtextxy(80, 40, _T("ĞÕÃû"));
+	outtextxy(80, 40, _T("å§“å"));
 
-	outtextxy(140, 40, _T("³É¼¨"));
+	outtextxy(140, 40, _T("æˆç»©"));
 
-	outtextxy(100, 500, _T("³É¼¨ÅÅĞò"));
+	outtextxy(100, 500, _T("æˆç»©æ’åº"));
 
-	outtextxy(340, 500, _T("¼ÓÔØĞÅÏ¢"));
+	outtextxy(340, 500, _T("åŠ è½½ä¿¡æ¯"));
 
-	outtextxy(200, 500, _T("×ÖµäÅÅĞò"));
+	outtextxy(200, 500, _T("å­—å…¸æ’åº"));
 
-	outtextxy(440, 500, _T("¼ÓÔØÔ­Ê¼ĞÅÏ¢"));
+	outtextxy(440, 500, _T("åŠ è½½åŸå§‹ä¿¡æ¯"));
 
-	outtextxy(100, 540, _T("°²È«ÍË³ö"));
+	outtextxy(100, 540, _T("å®‰å…¨é€€å‡º"));
 
-	outtextxy(340, 540, _T("Ñ§ºÅ²éÑ¯"));
+	outtextxy(340, 540, _T("å­¦å·æŸ¥è¯¢"));
 
-	outtextxy(200, 540, _T("Í³¼ÆĞÅÏ¢"));
+	outtextxy(200, 540, _T("ç»Ÿè®¡ä¿¡æ¯"));
 
-	outtextxy(440, 540, _T("ÏÂÒ»Ò³"));
+	outtextxy(440, 540, _T("ä¸‹ä¸€é¡µ"));
 
-	outtextxy(220, 0, _T("Maker:2100201117ÁºÈôè¤"));
-	outtextxy(200, 20, _T("»¶Ó­Ê¹ÓÃÑ§Éú³É¼¨Í³¼Æ²éÑ¯ÏµÍ³"));
+	outtextxy(220, 0, _T("Maker:2100201117"));
+	outtextxy(200, 20, _T("æ¬¢è¿ä½¿ç”¨å­¦ç”Ÿæˆç»©ç»Ÿè®¡æŸ¥è¯¢ç³»ç»Ÿ"));
 
 	mciSendString(_T("open resource\\student_sources_system.mp3 alias bkmusic"), NULL, 0, NULL);
 	mciSendString(_T("play resource\\student_sources_system.mp3 "), NULL, 0, NULL);
