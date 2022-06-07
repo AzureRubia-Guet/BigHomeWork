@@ -17,10 +17,10 @@
 
 #define _CRT_SECURE_NO_WARNINGS 1
 
-#pragma comment(lib,"Winmm.lib")
-#pragma warning(disable:4996)
+#pragma comment(lib,"Winmm.lib")/*音乐播放器的api*/
+#pragma warning(disable:4996)/*vs的东西，在其它地方请注释掉*/
 
-int main()
+int main(void)
 {
 	InitOfSystem();
 	InitOfWindow();
@@ -35,9 +35,9 @@ int main()
 
 	while (1)
 	{
-		m = GetMouseMsg();			
+		m = GetMouseMsg();/*获取鼠标消息*/
 
-		if (m.uMsg == WM_LBUTTONDOWN)
+		if (m.uMsg == WM_LBUTTONDOWN)/*如果是左键按下*/
 		{
 			if (m.x >= 340 && m.x <= 400 && m.y >= 500 && m.y <= 540)
 			{

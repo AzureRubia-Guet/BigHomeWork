@@ -8,16 +8,16 @@
 #include<mmsystem.h>
 #include<wchar.h>
 
-char* TranNumToStr(int number)
+wchar_t* TranNumToStr(int number = 0)
 {
-    char* ret = (char*)malloc(sizeof(char) * 3);
-    ret[0] = '0' + number % 10;
-    number /= 10;
-    ret[1] = '0' + number % 10;
+    wchar_t* ret = (wchar_t*)malloc(sizeof(wchar_t) * 3);
+    ret[0] = L'0' + number / 10;
+    ret[1] = L'0' + number % 10;
+    ret[3] = '\0\0';
     return ret;
 }
 
-wchar_t* tran(char *sBuf)
+wchar_t* tran(char *sBuf = 0)
 {
 
     int sBufSize = strlen(sBuf);

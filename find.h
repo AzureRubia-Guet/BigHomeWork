@@ -4,7 +4,6 @@
 
 #include"DataStruct.h"
 
-
 wchar_t* InputXueHao(void);
 void FindBaseOnXueHao(student* a);
 

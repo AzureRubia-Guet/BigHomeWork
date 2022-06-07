@@ -6,13 +6,17 @@
 #include<Windows.h>
 #include<graphics.h>
 #include<mmsystem.h>
+#include<WinUser.h>
+#include<wchar.h>
 #include"Init.h"
 #include"tran.h"
 #include"str.h"
-#include<WinUser.h>
-#include<wchar.h>
 #include"linklist.h"
 
+
+/*
+ *生成一个消息窗口，获取输入
+ */
 wchar_t* InputXueHao(void)
 {
 	wchar_t* input = (wchar_t*)malloc(sizeof(wchar_t) * 3);
@@ -24,7 +28,11 @@ wchar_t* InputXueHao(void)
 	return input;
 }
 
-void FindBaseOnXueHao(student* a)
+
+/*
+ *显示查询出来的结果
+ */
+void FindBaseOnXueHao(student* a = 0)
 {
 	wchar_t* xuehao = InputXueHao();
 

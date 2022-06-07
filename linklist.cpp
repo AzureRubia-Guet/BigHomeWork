@@ -13,7 +13,7 @@
 #include<wchar.h>
 #include"linklist.h"
 
-void student_add(student** head)
+void student_add(student** head = 0)
 {
 	FILE* readname = 0;
 	FILE* readscore = 0;
@@ -83,7 +83,7 @@ void student_add(student** head)
 		fclose(readxuehao);
 }
 
-void print(student *head,bool ctrl)
+void print(student *head = 0,bool ctrl = 0)
 {
 	student* rear_q = 0;
 
@@ -111,26 +111,23 @@ void print(student *head,bool ctrl)
 
 }
 
-void freelist(student* head)
+void freelist(student** head = 0)
 {
-	student* rear_a = head;
-	student* rear_b = rear_a->next;
-
-	int i = 0;
-
-	for (; rear_b; rear_b = rear_b->next)
-	{
-		free(rear_a->sorce);
-		free(rear_a->wname);
-		free(rear_a->xuehao);
-		rear_a = rear_b;
-	}
-	free(rear_a->sorce);
-	free(rear_a->wname);
-	free(rear_a->xuehao);
+	student* rear_a = *head;
+	if(head)
+	    for (; rear_a; rear_a = rear_a->next)
+	    {
+			free(rear_a->sorce);
+			free(rear_a->wname);
+			free(rear_a->xuehao);
+		}
+	return;
 }
 
-void SwapStudentDate(student* a, student* b)
+/*
+ *交换数据域
+ */
+void SwapStudentDate(student* a = 0, student* b = 0)
 {
 	student temp ;
 
@@ -147,7 +144,10 @@ void SwapStudentDate(student* a, student* b)
 	b->xuehao = temp.xuehao;
 }
 
-void StudentNameSort(student* a)
+/*
+ *字典序排序，但是有大问题
+ */
+void StudentNameSort(student* a = 0)
 {
 	student* apoint = a;
 	student* bpoint = a->next;
@@ -166,7 +166,10 @@ void StudentNameSort(student* a)
 	}
 }
 
-void StudentSorceSort(student* a)
+/*
+ *成绩高低排序
+ */
+void StudentSorceSort(student* a = 0)
 {
 	student* apoint = a;
 	student* bpoint = a->next;
@@ -185,9 +188,12 @@ void StudentSorceSort(student* a)
 	}
 }
 
-void LoadingDate(student* head)
+/*
+ *加载原始数据
+ */
+void LoadingDate(student* head = 0)
 {
-	//freelist(head);
+	freelist(&head);/*把之前的的释放了*/
 	FILE* readname = 0;
 	FILE* readscore = 0;
 	FILE* readxuehao = 0;
@@ -234,33 +240,34 @@ void LoadingDate(student* head)
 		fclose(readxuehao);
 }
 
-void CountStudentData(student* a)
+void CountStudentData(student* a = 0)
 {
-	/*student* apoint = a;
+	student* apoint = a;
 	int CountOfGood = 0;
 	int CountOfCommon = 0;
 	int CountOfBad = 0;
 	while (apoint)
 	{
-		if (wcscmp(a->sorce, _T("90")) > 0 )
+		if (wcscmp(a->sorce, L"90") > 0 )
 		{
 			CountOfGood += 1;
 		}
-		if (wcscmp(a->sorce, _T("90")) < 0 && wcscmp(a->sorce, _T("60")) > 0)
+		else if ( (wcscmp(a->sorce, L"90") < 0) && (wcscmp(a->sorce, L"60") > 0 ) )
 		{
 			CountOfCommon += 1;
 		}
-		if (wcscmp(a->sorce, _T("60")) < 0)
+		else if (wcscmp(a->sorce, L"60") < 0)
 		{
 			CountOfBad += 1;
 		}
 		apoint = apoint->next;
-	}*/
+	}
 	flush();
 	outtextxy(20, 80 , _T("优秀"));
 	outtextxy(20, 130, _T("及格"));
 	outtextxy(20, 180, _T("不及格"));
-	outtextxy(80, 80, _T("3"));
-	outtextxy(80, 130, _T("9"));
-	outtextxy(80, 180, _T("4"));
+
+	outtextxy(80, 80, TranNumToStr(CountOfGood));
+	outtextxy(80, 130, TranNumToStr(CountOfCommon));
+	outtextxy(80, 180, TranNumToStr(CountOfBad));
 }
