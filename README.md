@@ -1,4 +1,4 @@
-# BingHouseWork
+# BingHomeWork
 基于easyx的大作业，使用单向链表的数据结构，使用的IDE为vs2019
 
 代码中使用了windows系统的api，请在Windows系统下运行
