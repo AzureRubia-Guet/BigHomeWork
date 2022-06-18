@@ -16,7 +16,6 @@ void InitOfSystem(void)
 	system("cls");
 }
 
-
 /*
  *初始化出一块画布，并加载背景画面和背景提示音以及各个按键提示
  *

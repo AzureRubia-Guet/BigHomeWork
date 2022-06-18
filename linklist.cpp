@@ -217,13 +217,13 @@ void LoadingDate(student* head = 0)
 		memset(name, 0, sizeof(name));
 		namew = 0;
 
-		FGetStr(name, 4, readscore);
+		flag = FGetStr(name, 4, readscore);
 		namew = tran(name);
 		ahead_p->sorce = namew;
 		memset(name, 0, sizeof(name));
 		namew = 0;
 
-		FGetStr(name, 4, readxuehao);
+		flag = FGetStr(name, 4, readxuehao);
 		namew = tran(name);
 		ahead_p->xuehao = namew;
 		memset(name, 0, sizeof(name));
@@ -242,21 +242,24 @@ void LoadingDate(student* head = 0)
 
 void CountStudentData(student* a = 0)
 {
+	if (!a) return;
+
 	student* apoint = a;
 	int CountOfGood = 0;
 	int CountOfCommon = 0;
 	int CountOfBad = 0;
+
 	while (apoint)
 	{
-		if (wcscmp(a->sorce, L"90") > 0 )
+		if (wcscmp(apoint->sorce, L"90") >= 0 )
 		{
 			CountOfGood += 1;
 		}
-		else if ( (wcscmp(a->sorce, L"90") < 0) && (wcscmp(a->sorce, L"60") > 0 ) )
+		if ( (wcscmp(apoint->sorce, L"90") < 0) && (wcscmp(a->sorce, L"60") >= 0 ) )
 		{
 			CountOfCommon += 1;
 		}
-		else if (wcscmp(a->sorce, L"60") < 0)
+		if (wcscmp(apoint->sorce, L"60") < 0)
 		{
 			CountOfBad += 1;
 		}
